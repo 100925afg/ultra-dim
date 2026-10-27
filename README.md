@@ -80,7 +80,7 @@ apksigner verify --print-certs .\UltraDim-x.y.apk
 
 ## 隐私
 
-**不申请网络权限，不收集任何数据。** 所有设置只存在本机 SharedPreferences 里。
+**不申请网络权限，不收集任何数据。** 所有设置只存在本机 SharedPreferences 里，卸载即删除。权限逐项用途、数据存储位置与自行验证方法见 [PRIVACY.md](PRIVACY.md)。
 
 ## 许可证
 
