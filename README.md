@@ -7,11 +7,12 @@
 [![License](https://img.shields.io/badge/license-自定义非商业-lightgrey?style=flat-square)](LICENSE)
 [![No Network](https://img.shields.io/badge/不联网-无网络权限-brightgreen?style=flat-square)](#)
 
-[主界面截图](docs/images/main.jpg)
+<img src="docs/images/main.jpg" width="320" alt="主界面截图">
 
 ## 使用场景
 
 为您提供更低的亮度，这下妈妈再也不用担心我半夜偷吃闪光弹了！
+
 ## 功能
 
 - **无极调节**：0%–80% 连续可调，不改变系统亮度值，退出即恢复
@@ -21,7 +22,6 @@
 - **开机恢复**：重启后自动回到上次状态
 
 ## 安装
-
 
 1. 到 [Releases](https://github.com/100925afg/ultra-dim/releases/latest) 下载 `UltraDim-x.y.apk`
 2. 手机上允许「安装未知来源应用」后安装
@@ -54,16 +54,12 @@ adb install -r UltraDim-x.y.apk
 
 **不申请网络权限，不收集任何数据。** 所有设置只存在本机 SharedPreferences 里。
 
-<!-- 上面这句如果属实（本 App 确实没有 INTERNET 权限），保留；这是安卓工具类项目最有价值的信任背书。 -->
-
 ## 许可证
 
-允许自由使用、修改、二次分发，但**必须保留作者署名**，且**未经作者书面许可不得用于商业用途**。详见 [LICENSE](LICENSE)。
-
-<!-- 如果你以后换成标准许可（如 PolyForm Noncommercial），这段和 LICENSE 一起改。 -->
+允许自由使用、修改、二次分发；分发或发布衍生作品时须保留项目链接 <https://github.com/100925afg/ultra-dim>（署名可选），且未经作者书面许可不得用于商业用途。详见 [LICENSE](LICENSE)。
 
 ## 碎碎念
-灵感来源于一些漫画阅读类的软件，一想到软件内都有人做这种功能来提升夜间阅读的舒适度，那我也可以在整个手机上搞个这个啊，所以就诞生了这个项目,仅此而已。
-长时间在黑暗环境下阅读对眼睛有害，还请各位多多注意眼部保护，适当用眼注意休息。
 
----
+灵感来源于一些漫画阅读类的软件，一想到软件内都有人做这种功能来提升夜间阅读的舒适度，那我也可以在整个手机上搞个这个啊，所以就诞生了这个项目，仅此而已。
+
+长时间在黑暗环境下阅读对眼睛有害，还请各位多多注意眼部保护，适当用眼注意休息。

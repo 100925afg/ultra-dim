@@ -128,18 +128,35 @@ Invoke-Step "zipalign 4-byte" { & $ZipAlign -f -p 4 $withDexApk $alignedApk }
 # ---------- 7. sign ----------
 $outApk = Join-Path $DistDir ("UltraDim-{0}.apk" -f $VersionName)
 if (-not $SkipSign) {
+    # Keystore password is never hardcoded here (this file is public).
+    # Priority: env ULTRADIM_KS_PASS > keystore\keystore.properties > newly generated.
+    $KsProps = Join-Path (Split-Path $Keystore) "keystore.properties"
+    $ksPass  = $env:ULTRADIM_KS_PASS
+    if (-not $ksPass -and (Test-Path $KsProps)) {
+        foreach ($line in Get-Content $KsProps) {
+            if ($line -match '^\s*kspass\s*=\s*(.+?)\s*$') { $ksPass = $Matches[1] }
+        }
+    }
     if (-not (Test-Path $Keystore)) {
-        Invoke-Step "generate signing key (first time only)" {
+        if (-not $ksPass) {
+            $ksPass = [guid]::NewGuid().ToString("N")
             New-Item -ItemType Directory -Force -Path (Split-Path $Keystore) | Out-Null
+            Set-Content -Path $KsProps -Value ("kspass=" + $ksPass) -Encoding ASCII
+            Write-Host ("    generated keystore password -> " + $KsProps + " (gitignored)") -ForegroundColor Yellow
+        }
+        Invoke-Step "generate signing key (first time only)" {
             & keytool -genkeypair -v -keystore $Keystore -alias ultradim `
                 -keyalg RSA -keysize 2048 -validity 10000 `
-                -storepass ultradim123 -keypass ultradim123 `
+                -storepass $ksPass -keypass $ksPass `
                 -dname "CN=UltraDim,O=UltraDim,C=CN" -noprompt
         }
     }
+    if (-not $ksPass) {
+        throw ("Keystore exists but password is unknown: set ULTRADIM_KS_PASS or create " + $KsProps)
+    }
     Invoke-Step "apksigner sign" {
         & $ApkSigner sign --ks $Keystore --ks-key-alias ultradim `
-            --ks-pass "pass:ultradim123" --key-pass "pass:ultradim123" `
+            --ks-pass "pass:$ksPass" --key-pass "pass:$ksPass" `
             --min-sdk-version 34 `
             --out $outApk $alignedApk
     }
