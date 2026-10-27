@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    深度模式用到的无障碍服务配置。
+    本服务不读取任何界面内容、不改变触摸行为，只借用 TYPE_ACCESSIBILITY_OVERLAY
+    的「trusted overlay」身份来叠加一层纯黑压暗图层（不参与 Android 12+ 的 0.8 遮挡判定）。
+-->
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:accessibilityEventTypes="typeWindowStateChanged"
+    android:accessibilityFeedbackType="feedbackGeneric"
+    android:accessibilityFlags="flagDefault"
+    android:canRetrieveWindowContent="false"
+    android:isAccessibilityTool="true"
+    android:description="@string/accessibility_service_description"
+    android:notificationTimeout="200"
+    android:summary="@string/accessibility_service_summary" />

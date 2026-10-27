@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主题色（与 MainActivity 中的常量保持一致） -->
+    <color name="bg">#FF0B0C0E</color>
+    <color name="card">#FF17191E</color>
+    <color name="text_primary">#FFE8EAF0</color>
+    <color name="text_secondary">#FF9AA0AC</color>
+    <color name="accent">#FF5B8DEF</color>
+    <color name="warn">#FFE5A23B</color>
+    <color name="border">#FF24262D</color>
+
+    <!-- 自适应图标背景 -->
+    <color name="icon_bg">#FF0B0C0E</color>
+</resources>

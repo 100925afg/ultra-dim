@@ -1,0 +1,31 @@
+# 构建产物
+build/
+dist/
+*.apk
+*.aab
+.gradle/
+
+# 本机工具链 / SDK（约 100MB，不入库）
+.sdk/
+_tools/
+local.properties
+
+# 签名密钥（含口令，切勿提交）
+keystore/
+*.jks
+*.keystore
+
+# 编辑器 / 系统
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
+
+# 平台调研时抓取的 AOSP 源码片段（约 5MB，可由 docs/research-platform.md 的引用重新抓取）
+docs/_src/
+__pycache__/
+*.pyc
+
+# 发布产物：允许提交签名 APK（作为版本归档）
+!release/
+!release/*.apk

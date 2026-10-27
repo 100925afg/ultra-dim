@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">极暗</string>
+
+    <!-- 无障碍服务（可选深度模式）的说明文案 -->
+    <string name="accessibility_service_description">用于「深度模式」：在屏幕最上层叠加一层可调的黑色图层，让屏幕比系统最低亮度更暗。本服务不读取屏幕内容、不代替你操作，只做压暗。</string>
+    <string name="accessibility_service_summary">深度压暗（可选，仅在你需要比 80% 更暗时开启）</string>
+</resources>
