@@ -61,7 +61,7 @@ AOSP 源码（`InputDispatcher.cpp`）里有一条硬规则：**非 trusted 的�
 
 ## 2. 安装
 
-APK 在 `dist\UltraDim-1.0.apk`（已用项目内 `keystore\ultradim.jks` 签名，可 `apksigner verify`）。
+APK 在 `dist\UltraDim-1.1.apk`（已用项目内 `keystore\ultradim.jks` 签名，可 `apksigner verify`）。仓库 `release\` 目录里另存了一份带 SHA-256 的发布副本。
 
 **手机安装**：把 APK 传到手机（微信文件传输 / 数据线 / 网盘均可）→ 用文件管理器点开 → HyperOS 会提示「未知来源」，选择「允许来自此来源的应用」→ 安装。首次安装如遇「已安装的软件包存在问题」提示，先卸载旧的再装。
 
@@ -69,7 +69,7 @@ APK 在 `dist\UltraDim-1.0.apk`（已用项目内 `keystore\ultradim.jks` 签名
 
 ```powershell
 cd F:\deepseek-harness\default-workspace\ultra-dim
-.sdk\platform-tools\adb.exe install -r dist\UltraDim-1.0.apk
+.sdk\platform-tools\adb.exe install -r dist\UltraDim-1.1.apk
 ```
 
 ---
@@ -84,7 +84,7 @@ cd F:\deepseek-harness\default-workspace\ultra-dim
 | 4 | 点「自启动」→ 打开「自启动」和「省电策略：无限制」 | 红米必做，否则息屏/切后台后可能被杀 |
 | 5 | 打开「启用遮罩」开关 | 遮罩出现，试试拖动主滑条 |
 | 6 | （可选）下拉控制中心 → 编辑 → 添加「极暗」磁贴 | 之后点磁贴一键开关 |
-| 7 | （可选）打开「浮球调节」 | 屏幕任意位置拖动上下调暗度；双击开关；长按隐藏 |
+| 7 | （可选）打开「浮球调节」 | 屏幕任意位置拖动上下调暗度；双击开关；长按隐藏（隐藏后把「浮球调节」开关重新打开即可恢复） |
 | 8 | （进阶）打开「深度模式（进阶）」→ 在系统「无障碍」列表里开启「极暗」 | 解锁 80% 以上且触摸仍可用；会出现 HyperOS 的风险提示，属正常 |
 
 **调暗方式**：
@@ -135,7 +135,7 @@ cd F:\deepseek-harness\default-workspace\ultra-dim
 # 第一次：下载最小 Android SDK（build-tools 35.0.1 + platform 35 + platform-tools，约 130 MB）
 powershell -NoProfile -ExecutionPolicy Bypass -File tools\fetch_sdk.ps1
 
-# 构建（产物 dist\UltraDim-1.0.apk，自动 zipalign + 签名 + 验签）
+# 构建（产物 dist\UltraDim-<版本号>.apk，自动 zipalign + 签名 + 验签）
 powershell -NoProfile -ExecutionPolicy Bypass -File tools\build_offline.ps1
 
 # 升版本号
@@ -163,7 +163,7 @@ ultra-dim\
 ├─ app\src\main\
 │  ├─ AndroidManifest.xml
 │  ├─ java\com\ultradim\
-│  │  ├─ MainActivity.java      主界面（纯代码构建 UI，约 1050 行）
+│  │  ├─ MainActivity.java      主界面（纯代码构建 UI，约 1160 行）
 │  │  ├─ DimService.java        前台服务：遮罩窗口 + 浮球窗口 + 通知 + 磁贴动作
 │  │  ├─ DeepDimService.java    深度模式：无障碍服务 + TYPE_ACCESSIBILITY_OVERLAY 压暗层
 │  │  ├─ KnobView.java          浮球自绘控件（拖动/双击/长按）
@@ -181,7 +181,9 @@ ultra-dim\
 │  ├─ fetch_sdk.ps1             下载最小 SDK
 │  └─ add_dex.py                把 classes.dex 封进 APK
 ├─ keystore\ultradim.jks        自用签名密钥
-├─ dist\UltraDim-1.0.apk        构建产物
+├─ dist\UltraDim-1.1.apk        构建产物
+├─ release\                     发布副本 + SHA256SUMS.txt
+├─ LICENSE                      自定义非商业许可（须保留项目链接、禁止他人商用）
 ├─ docs\device-test.md          真机测试清单
 ├─ docs\research-platform.md    Android 平台机制调研（遮挡/触摸/FGS/HyperOS）
 └─ docs\review-round2.md        代码复审记录（深度模式链路）
@@ -213,6 +215,25 @@ ultra-dim\
 
 ---
 
-## 9. 版本
+## 9. 作者与许可
 
+- 作者：[@100925afg](https://github.com/100925afg)
+- 项目主页：<https://github.com/100925afg/ultra-dim>
+- 许可：**UltraDim 非商业许可 1.0**（完整文本见 [LICENSE](LICENSE)）
+
+**可以做什么**：使用、修改、二次分发（源码或编译好的 APK 都可以），也允许发布你自己的衍生版本。
+
+**必须遵守**：
+
+1. **保留项目链接** `https://github.com/100925afg/ultra-dim`（放在源码、README 或应用「关于」区任一可识别位置即可）。不强制列作者姓名，但不许把链接删掉或换成别的；
+2. **不得用于商业目的**（收费分发、内置于收费产品或服务、广告/订阅/赞助变现、企业内部营利部署等）。除作者外的商业使用必须事先取得作者书面许可；
+3. 衍生作品标注「基于 UltraDim 修改」，版权与许可声明不得删除。
+
+> 说明：这不是 OSI 认可的开源许可，GitHub 会把它归到「Other / 自定义许可」。如果以后想换成标准许可（MIT、Apache-2.0）或 PolyForm Noncommercial 1.0.0，只改 `LICENSE` 一个文件即可，代码里不用动。
+
+---
+
+## 10. 版本
+
+- **1.1**（2026-10-27）：修复浮球 bug——长按隐藏后「浮球调节」开关仍显示「开」、且重新打开开关浮球不恢复（服务端 `knobHiddenByUser` 未复位）；普通模式 >80% 时拒绝隐藏安全浮球（防止把自己锁死）；新增作者/项目链接与许可声明；版本号 1.1 / versionCode 2。
 - **1.0**（2026-10-27）：首个版本（含第二轮代码复审的全部 P1 修复）。遮罩压暗、无极调节、浮球、通知快捷操作、控制中心磁贴、开机恢复、安全触摸上限、实验 DIM_BEHIND 模式、**深度模式（无障碍图层，突破 80% 且触摸可用）**。

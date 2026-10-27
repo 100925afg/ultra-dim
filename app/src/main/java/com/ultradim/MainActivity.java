@@ -218,6 +218,9 @@ public class MainActivity extends Activity {
                         state.setOpacity(state.clampToEffectiveMax(value));
                     }
                     applyRunningState(running);
+                    // 长按隐藏浮球时服务端会把「浮球调节」关掉并广播，这里必须同步开关视觉，
+                    // 否则界面还显示「开」、用户以为开关失灵（实测 bug）。
+                    refreshSwitches();
                     // 深度图层可能刚建好（或刚失败回退），状态文案要跟着变
                     refreshDeepModeUi();
                     if (!dragging) {
@@ -619,6 +622,33 @@ public class MainActivity extends Activity {
         LinearLayout.LayoutParams alp = lpMatch();
         alp.topMargin = dp(4);
         col.addView(app, alp);
+
+        // 署名 / 项目链接：点一下用浏览器打开项目主页（LICENSE 要求分发时保留此链接）
+        TextView author = labelView(getString(R.string.author_line), 11, C_ACCENT, false);
+        author.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openProjectPage();
+            }
+        });
+        LinearLayout.LayoutParams aulp = lpMatch();
+        aulp.topMargin = dp(6);
+        col.addView(author, aulp);
+
+        TextView license = labelView(getString(R.string.license_line), 10, C_SUB, false);
+        LinearLayout.LayoutParams llp2 = lpMatch();
+        llp2.topMargin = dp(4);
+        col.addView(license, llp2);
+    }
+
+    /** 打开项目主页；没有浏览器时退回提示，避免静默失败。 */
+    private void openProjectPage() {
+        String url = getString(R.string.project_url);
+        try {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        } catch (Throwable t) {
+            toast("无法打开浏览器，项目地址：" + url);
+        }
     }
 
     // ------------------------------------------------------------------

@@ -265,6 +265,12 @@ public class DimService extends Service {
                 syncKnob();
                 break;
             case ACTION_APPLY:
+                // 界面把「浮球调节」开关打开时会走这里：必须同时解除长按隐藏，
+                // 否则 knobHiddenByUser 一直是 true，开关打开了浮球也永远不出现
+                // （只能靠关掉遮罩再开、或重启服务才能复位）。
+                if (state.isKnobEnabled()) knobHiddenByUser = false;
+                syncKnob();
+                break;
             case ACTION_START:
             default:
                 syncKnob();
@@ -537,6 +543,13 @@ public class DimService extends Service {
 
                 @Override
                 public void onDismiss() {
+                    // 普通模式超过 80% 时，浮球是唯一的操作入口（触摸会被系统拦掉），
+                    // 长按隐藏会把自己锁死在打不开的状态，这里直接拒绝。
+                    boolean deepWorks = state.isDeepActive() && deepLayerOk;
+                    if (opacity > State.TOUCH_SAFE_LIMIT && !deepWorks && !state.isDimBehind()) {
+                        toast("当前亮度超过 80%，浮球是唯一的操作入口，不能隐藏");
+                        return;
+                    }
                     knobHiddenByUser = true;
                     state.setKnobEnabled(false);
                     syncKnob();

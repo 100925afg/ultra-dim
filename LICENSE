@@ -1,0 +1,63 @@
+UltraDim 非商业许可 1.0
+UltraDim Non-Commercial License 1.0
+项目主页 / Project Home: https://github.com/100925afg/ultra-dim
+
+版权所有 (c) 2026 100925afg
+Copyright (c) 2026 100925afg
+
+======================================================================
+一、许可授予（Grant）
+======================================================================
+在遵守本许可全部条件的前提下，任何人均被免费授予一项非独占、全球范围、
+不可撤销的授权，可以：
+
+  1. 使用、复制本项目（含源码、资源与编译后的 APK）；
+  2. 修改本项目、将本项目与其他作品合并，并基于本项目创作衍生作品；
+  3. 分发本项目及衍生作品，无论以源码形式还是编译后的 APK 形式。
+
+======================================================================
+二、条件（Conditions）
+======================================================================
+1. 【保留项目链接】分发本项目或衍生作品时（无论源码、二进制还是应用界面），
+   必须保留可识别的项目链接 https://github.com/100925afg/ultra-dim
+   以及本许可的全文或指向本许可文件的明确说明。
+   本许可不强制要求列出作者姓名（署名可选），但不得删除、篡改或替换项目链接。
+
+2. 【非商业】除作者本人外，任何人不得将本项目（含源码及衍生作品）用于商业目的。
+   "商业目的" 包括但不限于：收费分发、内置于收费产品或服务、以本项目为主要
+   功能换取收入（广告、订阅、赞助、预装分成、付费下载等）、以及在企业内部
+   以营利为目的的部署。商业使用必须事先取得作者书面许可。
+
+3. 【标识】不得删除源码文件、应用界面或文档中的版权与许可声明；
+   衍生作品必须在项目说明中注明「基于 UltraDim 修改」。
+
+4. 【同等条件】衍生作品必须继续以本许可（或与作者另行书面约定的许可）分发，
+   不得改为闭源商业许可。
+
+======================================================================
+三、终止（Termination）
+======================================================================
+违反本许可任何条款的，本许可授予的权利立即自动终止。
+若违规方完全停止违规行为，并可证明其已恢复遵守本许可，则授权自恢复之日起恢复。
+
+======================================================================
+四、免责（Disclaimer）
+======================================================================
+本项目按「现状」提供，不附带任何明示或默示的担保，包括但不限于适销性、
+特定用途适用性与不侵权的担保。在任何情况下，作者均不对因使用或无法使用
+本项目而产生的任何直接、间接、偶然、特殊或后果性损失承担责任。
+
+本软件修改屏幕显示亮度/遮罩，可能影响屏幕内容辨识；使用者需自行评估风险。
+作者保留本许可未明确授予的一切权利。
+
+======================================================================
+English Summary (for reference; the Chinese text above is authoritative)
+======================================================================
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software, to use, copy, modify, merge and distribute it, provided that:
+(1) the project link https://github.com/100925afg/ultra-dim is retained in any
+redistribution, (2) attribution to the author is appreciated but not required,
+(3) commercial use is prohibited without prior written permission from the author,
+(4) copyright and license notices are kept, and derivative works are distributed
+under the same license. The software is provided "AS IS", without warranty of any
+kind, and the author is not liable for any damages.
