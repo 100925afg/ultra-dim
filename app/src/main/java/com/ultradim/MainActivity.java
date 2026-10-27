@@ -639,6 +639,17 @@ public class MainActivity extends Activity {
         LinearLayout.LayoutParams llp2 = lpMatch();
         llp2.topMargin = dp(4);
         col.addView(license, llp2);
+
+        // 免责声明与非官方声明：LICENSE 同款，放在用户能看到的地方
+        TextView disclaimer = labelView(getString(R.string.disclaimer_line), 10, C_SUB, false);
+        LinearLayout.LayoutParams dlp2 = lpMatch();
+        dlp2.topMargin = dp(8);
+        col.addView(disclaimer, dlp2);
+
+        TextView unofficial = labelView(getString(R.string.unofficial_line), 10, C_SUB, false);
+        LinearLayout.LayoutParams ulp = lpMatch();
+        ulp.topMargin = dp(4);
+        col.addView(unofficial, ulp);
     }
 
     /** 打开项目主页；没有浏览器时退回提示，避免静默失败。 */

@@ -10,4 +10,8 @@
     <string name="project_url" translatable="false">https://github.com/100925afg/ultra-dim</string>
     <string name="author_line" translatable="false">作者：@100925afg · https://github.com/100925afg/ultra-dim</string>
     <string name="license_line" translatable="false">许可：UltraDim-NC 1.0（可自由分发/修改，须保留项目链接，未经作者书面许可不得商用）</string>
+
+    <!-- 免责声明（与 README 顶部一致，分发时请勿删除） -->
+    <string name="disclaimer_line">使用本软件即表示你已阅读并同意 LICENSE：本软件按现状提供，不附带任何担保，作者不对使用后果承担责任。请勿在驾驶、医疗、工业控制、紧急呼叫等安全关键场景使用。</string>
+    <string name="unofficial_line">本项目与小米 / 红米 / HyperOS / Google 无关联，非官方应用；仅本仓库 Release 为官方版本。</string>
 </resources>

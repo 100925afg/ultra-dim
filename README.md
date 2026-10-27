@@ -7,6 +7,14 @@
 [![License](https://img.shields.io/badge/license-自定义非商业-lightgrey?style=flat-square)](LICENSE)
 [![No Network](https://img.shields.io/badge/不联网-无网络权限-brightgreen?style=flat-square)](#)
 
+> **免责声明**
+>
+> 本软件是免费开源的辅助工具，**按「现状」提供，不附带任何明示或暗示的担保**。使用本软件的全部风险由你自行承担，作者不对任何直接或间接损失负责（包括但不限于屏幕过暗导致的误操作、错过通知或闹钟、设备异常等）。
+>
+> **请勿在驾驶或骑行时、医疗设备附近、工业控制、紧急呼叫等安全关键场景使用**。屏幕被压暗可能让你看不清内容而误操作；建议始终保留浮球或通知栏「关闭」作为逃生通道。
+>
+> 本项目与小米 / 红米 / HyperOS / Google / Android 官方**无任何关联**，不是官方应用。使用或分发本软件即表示你已阅读并同意 [LICENSE](LICENSE)；仅本仓库 Releases 发布的是官方版本，第三方修改版与作者无关。
+
 <img src="docs/images/main.jpg" width="320" alt="主界面截图">
 
 ## 使用场景
@@ -34,6 +42,22 @@
 adb install -r UltraDim-x.y.apk
 ```
 </details>
+
+### 校验下载的 APK（建议）
+
+**只从本仓库的 [Releases](https://github.com/100925afg/ultra-dim/releases) 下载**，其他网站、网盘、群文件里的「极暗」修改版与作者无关。每个 Release 都附 `SHA256SUMS.txt`：
+
+```powershell
+Get-FileHash .\UltraDim-x.y.apk -Algorithm SHA256   # 与 SHA256SUMS.txt 对比
+```
+
+更可靠的校验是签名证书指纹——所有官方版本一致，任何人改过包就会变：
+
+```powershell
+apksigner verify --print-certs .\UltraDim-x.y.apk
+# Signer #1 certificate SHA-256 digest:
+# a81aefed629f639d5c7edcdea55e4cd17e523fa8c1ad3eb2734b37700e638831
+```
 
 ## 快速上手
 
