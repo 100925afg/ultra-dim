@@ -186,7 +186,8 @@ ultra-dim\
 ├─ LICENSE                      自定义非商业许可（须保留项目链接、禁止他人商用）
 ├─ docs\device-test.md          真机测试清单
 ├─ docs\research-platform.md    Android 平台机制调研（遮挡/触摸/FGS/HyperOS）
-└─ docs\review-round2.md        代码复审记录（深度模式链路）
+├─ docs\review-round2.md        代码复审记录（深度模式链路）
+└─ docs\upload-to-github.md     上传 GitHub 与发版步骤
 ```
 
 ---
@@ -219,6 +220,7 @@ ultra-dim\
 
 - 作者：[@100925afg](https://github.com/100925afg)
 - 项目主页：<https://github.com/100925afg/ultra-dim>
+- 上传到 GitHub 的步骤：见 [docs/upload-to-github.md](docs/upload-to-github.md)
 - 许可：**UltraDim 非商业许可 1.0**（完整文本见 [LICENSE](LICENSE)）
 
 **可以做什么**：使用、修改、二次分发（源码或编译好的 APK 都可以），也允许发布你自己的衍生版本。
