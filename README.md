@@ -179,7 +179,8 @@ ultra-dim\
 ├─ tools\
 │  ├─ build_offline.ps1         离线构建脚本
 │  ├─ fetch_sdk.ps1             下载最小 SDK
-│  └─ add_dex.py                把 classes.dex 封进 APK
+│  ├─ add_dex.py                把 classes.dex 封进 APK
+│  └─ gh_relay.js               git TLS 不可用时的 GitHub 转发中继（Node）
 ├─ keystore\ultradim.jks        自用签名密钥
 ├─ dist\UltraDim-1.1.apk        构建产物
 ├─ release\                     发布副本 + SHA256SUMS.txt
