@@ -51,13 +51,17 @@ adb install -r UltraDim-x.y.apk
 Get-FileHash .\UltraDim-x.y.apk -Algorithm SHA256   # 与 SHA256SUMS.txt 对比
 ```
 
-更可靠的校验是签名证书指纹——所有官方版本一致，任何人改过包就会变：
+更可靠的校验是签名证书指纹——v1.2 起官方版本固定为下面这个值，任何人改过包就会变：
 
 ```powershell
 apksigner verify --print-certs .\UltraDim-x.y.apk
-# Signer #1 certificate SHA-256 digest:
+# Signer #1 certificate SHA-256 digest (v1.2 及以后):
+# 2cda466a08df81b7f08cd4d0be4c506e82e590a49cb39768a7a130095510ef58
+# v1.1 及更早（旧密钥，已停用）:
 # a81aefed629f639d5c7edcdea55e4cd17e523fa8c1ad3eb2734b37700e638831
 ```
+
+> **从 v1.1 升级到 v1.2 需要先卸载旧版**（会清空 App 内设置）。原因是 v1.2 更换了签名密钥——旧版脚本里的密钥口令曾出现在公开仓库中，虽然密钥文件本身从未上传，仍按最坏情况处理。v1.2 起签名固定，以后的版本可以正常覆盖升级。
 
 ## 快速上手
 
